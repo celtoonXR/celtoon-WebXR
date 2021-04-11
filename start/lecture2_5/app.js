@@ -26,7 +26,9 @@ class App{
 		
         const geometry = new THREE.TorusKnotBufferGeometry( 0.8, 0.3, 120, 16 ); 
         
-        const material = new THREE.MeshBasicMaterial( { color: 0xFF0000 });
+        //const material = new THREE.MeshBasicMaterial( { color: 0xFF0000 }); material básico sem diferenciação de iluminação
+        //const material = new THREE.MeshLambertMaterial ({color:0xFF0000}); calcula a iluminação nos vertex e interpola este valor em cada triangulo
+        const material = new THREE.MeshPhongMaterial ({color: 0xFF0000, specular:0x444444, shininess: 60}); calcula a iluminação em cada pixel e pode mostar specular highlights
 
         this.mesh = new THREE.Mesh( geometry, material );
         
